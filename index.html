@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EliTech Global</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ====== RESET ====== */
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+  body{line-height:1.6;color:#1e293b;scroll-behavior:smooth;background:#f8fafc;}
+  a{text-decoration:none;color:inherit;}
+
+  /* ====== HEADER ====== */
+  header{background:#0f172a;color:#fff;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+  header h1{font-weight:700;font-size:1.75rem;}
+  nav a{margin-left:1.5rem;font-weight:600;transition:0.3s;color:#fff;}
+  nav a:hover{color:#3b82f6;}
+
+  /* ====== HERO ====== */
+  .hero{background:linear-gradient(135deg,#3b82f6,#06b6d4);color:#fff;text-align:center;padding:6rem 2rem;position:relative;overflow:hidden;}
+  .hero h2{font-size:3rem;margin-bottom:1rem;animation:fadeIn 1s ease;}
+  .hero p{font-size:1.2rem;margin-bottom:2rem;animation:fadeIn 1.5s ease;}
+  .hero button{background:#fff;color:#0f172a;border:none;padding:0.75rem 2rem;font-size:1rem;font-weight:600;border-radius:6px;cursor:pointer;transition:0.3s;}
+  .hero button:hover{background:#0f172a;color:#fff;transition:0.3s;}
+
+  /* ====== SECTIONS ====== */
+  section{padding:4rem 2rem;max-width:1200px;margin:auto;}
+  section h3{text-align:center;font-size:2rem;margin-bottom:1rem;color:#0f172a;}
+  section p{text-align:center;max-width:800px;margin:auto;margin-bottom:2rem;color:#475569;}
+
+  /* ====== SERVICES ====== */
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:2rem;}
+  .card{background:#fff;padding:2rem;border-radius:10px;text-align:center;transition:all 0.3s;box-shadow:0 4px 15px rgba(0,0,0,0.05);}
+  .card:hover{transform:translateY(-10px);box-shadow:0 10px 25px rgba(0,0,0,0.1);}
+  .card h4{margin-bottom:1rem;font-size:1.25rem;color:#0f172a;}
+  .card p{font-size:1rem;color:#475569;}
+
+  /* ====== KNOWLEDGE BASE ====== */
+  .kb{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem;}
+  .kb-card{background:#fff;padding:1.5rem;border-radius:10px;border:1px solid #e2e8f0;transition:all 0.3s;cursor:pointer;}
+  .kb-card:hover{transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+  .kb-card h4{margin-bottom:0.5rem;font-size:1.1rem;color:#0f172a;}
+  .kb-card p{font-size:0.95rem;color:#475569;}
+
+  /* ====== CONTACT ====== */
+  form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:1rem;}
+  input,textarea{padding:0.75rem;border-radius:6px;border:1px solid #cbd5e1;}
+  button[type="submit"]{padding:0.75rem 2rem;border-radius:6px;border:none;background:#3b82f6;color:#fff;font-weight:600;cursor:pointer;transition:0.3s;}
+  button[type="submit"]:hover{background:#2563eb;}
+
+  /* ====== FOOTER ====== */
+  footer{background:#0f172a;color:#fff;text-align:center;padding:2rem;margin-top:2rem;}
+
+  /* ====== CHATBOT ====== */
+  #chatbotBtn{position:fixed;bottom:20px;right:20px;background:#3b82f6;color:#fff;border:none;padding:1rem 1.25rem;border-radius:50px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.2);z-index:1000;transition:0.3s;}
+  #chatbotBtn:hover{background:#2563eb;}
+  #chatbotWindow{position:fixed;bottom:80px;right:20px;width:350px;max-width:90%;height:450px;background:#fff;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.2);display:none;flex-direction:column;overflow:hidden;z-index:1000;}
+  #chatbotHeader{background:#0f172a;color:#fff;padding:0.5rem 1rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;}
+  #chatbotMessages{flex:1;padding:1rem;overflow-y:auto;}
+  #chatbotInput{display:flex;border-top:1px solid #e2e8f0;}
+  #chatbotInput input{flex:1;padding:0.5rem 1rem;border:none;outline:none;}
+  #chatbotInput button{background:#3b82f6;color:#fff;border:none;padding:0 1rem;cursor:pointer;transition:0.3s;}
+  #chatbotInput button:hover{background:#2563eb;}
+
+  /* ====== SEARCH BAR ====== */
+  #kbSearch{padding:0.5rem 1rem; width:300px; max-width:90%; border-radius:6px; border:1px solid #cbd5e1; display:block; margin:1rem auto;}
+  
+  /* ====== ANIMATIONS ====== */
+  @keyframes fadeIn{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header>
+  <h1>EliTech Global</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#knowledge">Knowledge Base</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <h2>Innovating Solutions for a Smarter Future</h2>
+  <p>EliTech Global empowers businesses and individuals with cutting-edge technology solutions.</p>
+  <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section id="about">
+  <h3>About Us</h3>
+  <p>EliTech Global is a technology company focused on providing innovative solutions that simplify complex processes, enhance productivity, and drive growth for our clients worldwide.</p>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section id="services">
+  <h3>Our Services</h3>
+  <div class="services">
+    <div class="card"><h4>Consulting</h4><p>Expert advice and strategies to help your business thrive in the digital era.</p></div>
+    <div class="card"><h4>Software Development</h4><p>Custom software solutions tailored to your unique business needs.</p></div>
+    <div class="card"><h4>Knowledge Solutions</h4><p>Centralized knowledge management systems and AI-powered chatbots for your organization.</p></div>
+    <div class="card"><h4>AI Integration</h4><p>Advanced AI solutions to automate processes and enhance productivity.</p></div>
+  </div>
+</section>
+
+<!-- ====== KNOWLEDGE BASE ====== -->
+<section id="knowledge">
+  <h3>Elimind Knowledge Base</h3>
+  <input type="text" id="kbSearch" placeholder="Search Knowledge Base...">
+  <div class="kb" id="kbContainer"></div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section id="contact">
+  <h3>Contact Us</h3>
+  <p>Reach out to our team to learn more about our services or discuss a project.</p>
+  <form id="contactForm">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  &copy; 2026 EliTech Global. All rights reserved. | <a href="#" style="color:#3b82f6;">Privacy Policy</a>
+</footer>
+
+<!-- ====== CHATBOT ====== -->
+<button id="chatbotBtn">Chat</button>
+<div id="chatbotWindow">
+  <div id="chatbotHeader"><span>EliTech Chat</span><span id="closeChat" style="cursor:pointer;">✖</span></div>
+  <div id="chatbotMessages"><div><strong>Bot:</strong> Hi! How can I assist you today?</div></div>
+  <div id="chatbotInput">
+    <input type="text" placeholder="Type a message..." id="chatInput">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  /* ====== Mentor Notes ======
+    Cosmo, this full Phase 3 code integrates:
+    - Modular KB with search
+    - AI-powered chatbot simulation
+    - Analytics logging placeholders
+    - Ready for GPT/OpenAI API integration
+  */
+
+  // ----- KB Articles -----
+  const kbArticles = [
+    {title:"Getting Started with EliTech", desc:"Step-by-step guide to start using our products and services."},
+    {title:"Using the Chatbot", desc:"Learn how to interact with our AI assistant to solve problems faster."},
+    {title:"FAQs & Troubleshooting", desc:"Solutions for the most common issues encountered by our clients."},
+    {title:"Software Setup Guide", desc:"Instructions for installing and configuring our software."},
+    {title:"Security Best Practices", desc:"Protect your data with these essential security guidelines."}
+  ];
+
+  // ----- Load KB dynamically -----
+  const kbContainer = document.getElementById('kbContainer');
+  kbContainer.innerHTML = '';
+  kbArticles.forEach(article => {
+    const card = document.createElement('div');
+    card.className = 'kb-card';
+    card.innerHTML = `<h4>${article.title}</h4><p>${article.desc}</p>`;
+    card.addEventListener('click', () => console.log(`KB Article Clicked: ${article.title}`));
+    kbContainer.appendChild(card);
+  });
+
+  // ----- KB Search -----
+  const kbSearch = document.getElementById('kbSearch');
+  kbSearch.addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    kbContainer.childNodes.forEach(card => {
+      const title = card.querySelector('h4').textContent.toLowerCase();
+      const desc = card.querySelector('p').textContent.toLowerCase();
+      card.style.display = (title.includes(query) || desc.includes(query)) ? 'block' : 'none';
+    });
+  });
+
+  // ----- Chatbot Toggle -----
+  const chatbotBtn=document.getElementById('chatbotBtn');
+  const chatbotWindow=document.getElementById('chatbotWindow');
+  const closeChat=document.getElementById('closeChat');
+  chatbotBtn.addEventListener('click',()=>{chatbotWindow.style.display='flex';});
+  closeChat.addEventListener('click',()=>{chatbotWindow.style.display='none';});
+
+  // ----- AI-Powered Chatbot -----
+  const chatInput=document.getElementById('chatInput');
+  function sendMessage(){
+    const msg=chatInput.value.trim();
+    if(!msg) return;
+    const messages=document.getElementById('chatbotMessages');
+    const userMsg=document.createElement('div');
+    userMsg.innerHTML=`<strong>You:</strong> ${msg}`;
+    messages.appendChild(userMsg);
+
+    // --- AI Simulation (Mentor Tip: Replace with GPT API for real AI) ---
+    const botMsg=document.createElement('div');
+    const keywords=msg.toLowerCase().split(' ');
+    let matched=null;
+    for(const article of kbArticles){
+      for(const word of keywords){
+        if(article.title.toLowerCase().includes(word) || article.desc.toLowerCase().includes(word)){
+          matched=article; break;
+        }
+      }
+      if(matched) break;
+    }
+    botMsg.innerHTML=`<strong>Bot:</strong> ${matched ? `I found this guide for you: <em>${matched.title}</em> - ${matched.desc}` : "I couldn't find an exact match in our KB. Try rephrasing or check the Knowledge Base."}`;
+    messages.appendChild(botMsg);
+
+    // Analytics placeholder
+    console.log(`Chatbot query: ${msg} | Matched article: ${matched ? matched.title : 'None'}`);
+
+    messages.scrollTop=messages.scrollHeight;
+    chatInput.value='';
+  }
+
+  // ----- Contact Form -----
+  const contactForm=document.getElementById('contactForm');
+  contactForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    const name=this.querySelector('input[type="text"]').value;
+    const email=this.querySelector('input[type="email"]').value;
+    console.log(`Contact Form Submitted: Name=${name}, Email=${email}`);
+    alert('Thank you! Your message has been sent. We will contact you shortly.');
+    this.reset();
+  });
+
+  /* Mentor Tip:
+    - Next upgrade: Replace simulateAIResponse() with real API calls to GPT/OpenAI.
+    - Store KB in DB for scalability.
+    - Add analytics dashboard for tracking usage.
+    - Always test mobile and desktop performance.
+  */
+</script>
+</body>
+</html>
+
